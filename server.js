@@ -2,16 +2,28 @@
 
 const Url = require('url');
 const Hapi = require('hapi');
+const parseArgs = require('minimist');
 
 const Payload = require('./payload');
 const Secret = require('./secret');
 const Rsa = require('./rsa');
 const Decode = require('./decode');
 
+const argv = parseArgs(process.argv.slice(2), {
+  alias: {
+    'p': 'port'
+  },
+  default: {
+    port: 8000
+  },
+  '--': true
+});
+// console.log(argv); process.exit(0);
+
 const server = new Hapi.Server();
 server.connection({
   host: '0.0.0.0',
-  port: 8000
+  port: argv.port
 });
 
 server.route({

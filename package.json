@@ -22,5 +22,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leesei/test-jwt-server.git"
+  },
+  "scripts": {
+    "build": "echo none",
+    "start": "node server.js"
   }
 }
