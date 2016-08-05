@@ -1,7 +1,7 @@
 {
   "name": "test-jwt-server",
   "description": "A JWT server for testing, DO NOT use in production",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "leesei@gmail.com",
   "bin": "./server.js",
   "bugs": {
