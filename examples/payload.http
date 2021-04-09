@@ -1,0 +1,43 @@
+# this and the next example yield the same results
+GET {{SERVER_URL}}/payload
+    ?items[]=1.1&items[]=2.2&items[]=3.3
+    &foo[bar]=42
+    &user=me
+    &iat=1000 HTTP/1.1
+
+###
+
+# @name jwtshared
+POST {{SERVER_URL}}/payload HTTP/1.1
+content-type: application/json
+
+{
+    "items": ["1.1","2.2","3.3"],
+    "foo": {
+        "bar": "42"
+    },
+    "user": "me",
+    "iat": 1000
+}
+
+###
+
+@abc = {{jwtshared.response.body.$.iss}}
+GET {{SERVER_URL}}/decode/{{abc}} HTTP/1.1
+
+
+###
+
+# use POST for numeric values in payload
+
+POST {{SERVER_URL}}/payload HTTP/1.1
+content-type: application/json
+
+{
+    "items": [1.1, 2.2, 3.3],
+    "foo": {
+        "bar": 42
+    },
+    "user": "me",
+    "iat": 1000
+}

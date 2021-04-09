@@ -1,0 +1,39 @@
+# token from https://jwt.io/
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+POST {{SERVER_URL}}/decode HTTP/1.1
+content-type: text/plain
+
+{{token}}
+
+###
+
+POST {{SERVER_URL}}/verify HTTP/1.1
+content-type: text/plain
+
+{{token}}
+
+###
+
+# expired token
+# @name jwt
+POST {{SERVER_URL}}/jwt.secret HTTP/1.1
+content-type: application/json
+
+{
+    "items": [1.1, 2.2, 3.3],
+    "foo": {
+        "bar": 42
+    },
+    "user": "me",
+    "iat": 1000,
+    "ttl": 300
+}
+
+###
+
+@token = {{jwt.response.body.*}}
+POST {{SERVER_URL}}/verify HTTP/1.1
+content-type: text/plain
+
+{{token}}

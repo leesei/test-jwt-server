@@ -1,0 +1,4 @@
+# list routes
+GET {{SERVER_URL}} HTTP/1.1
+
+###

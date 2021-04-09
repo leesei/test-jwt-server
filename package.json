@@ -1,18 +1,19 @@
 {
   "name": "test-jwt-server",
   "description": "A JWT server for testing, DO NOT use in production",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "leesei@gmail.com",
   "bin": "./server.js",
   "bugs": {
     "url": "https://github.com/leesei/test-jwt-server/issues"
   },
   "dependencies": {
-    "hapi": "^14.1.0",
-    "hapi-qs": "^1.1.1",
-    "joi": "^9.0.4",
-    "jsonwebtoken": "^7.1.7",
-    "minimist": "^1.2.0"
+    "@hapi/hapi": "^20.1.0",
+    "glob": "^7.1.6",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.0",
+    "minimist": "^1.2.0",
+    "qs": "^6.10.1"
   },
   "homepage": "https://github.com/leesei/test-jwt-server#readme",
   "keywords": [
@@ -26,6 +27,7 @@
   },
   "scripts": {
     "build": "echo none",
-    "start": "node server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon"
   }
 }
