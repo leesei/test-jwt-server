@@ -11,7 +11,7 @@
     "@hapi/hapi": "^20.1.0",
     "glob": "^7.1.6",
     "joi": "^17.4.0",
-    "jsonwebtoken": "^8.5.0",
+    "jsonwebtoken": "^9.0.0",
     "minimist": "^1.2.0",
     "qs": "^6.10.1"
   },
